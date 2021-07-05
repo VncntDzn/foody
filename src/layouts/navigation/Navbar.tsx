@@ -1,20 +1,53 @@
-import { AppBar, Grid, Typography, Toolbar } from '@material-ui/core';
+import { useState } from 'react';
+import {
+  AppBar,
+  Grid,
+  Typography,
+  Toolbar,
+  createStyles,
+  makeStyles,
+  Theme,
+} from '@material-ui/core';
 import { I_Navigation } from 'types/I_Navigation';
 import ElevatedScroll from './ElevatedScroll';
 import PropTypes from 'prop-types';
+import { Cross as Hamburger } from 'hamburger-react';
+import MobileMenu from './MobileMenu';
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    logoStyle: {
+      fontSize: 'clamp(1.4rem, 5vw, 1.7rem)',
+      fontWeight: 600,
+    },
+  })
+);
 
 const Navbar = (props: I_Navigation.I_Navbar) => {
+  const styles = useStyles();
+  const [toggleBurger, setToggleBurger] = useState<boolean>(false);
+  const handleToggle = () => {
+    setToggleBurger(!toggleBurger);
+  };
   return (
     <>
       <ElevatedScroll {...props}>
         <AppBar color='transparent'>
           <Toolbar>
             <Grid container item alignItems='center' justify='space-between'>
-              <Typography>Foody</Typography>
+              <Typography className={styles.logoStyle}>Foody</Typography>
+              <Hamburger
+                toggled={toggleBurger}
+                toggle={() => handleToggle()}
+                size={21}
+                color='#B76A40'
+              />
             </Grid>
           </Toolbar>
         </AppBar>
       </ElevatedScroll>
+
+      {toggleBurger && <MobileMenu />}
     </>
   );
 };
