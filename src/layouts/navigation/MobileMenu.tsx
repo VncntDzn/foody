@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  AppBar,
   Grid,
   Typography,
-  Toolbar,
   createStyles,
   makeStyles,
   Theme,

@@ -19,6 +19,7 @@ const useStyles = makeStyles((theme: Theme) =>
     logoStyle: {
       fontSize: 'clamp(1.4rem, 5vw, 1.7rem)',
       fontWeight: 600,
+      color: '#FFFFFF',
     },
   })
 );
@@ -32,15 +33,15 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
   return (
     <>
       <ElevatedScroll {...props}>
-        <AppBar color='transparent'>
+        <AppBar color='transparent' style={{ backdropFilter: 'blur(3px)' }}>
           <Toolbar>
             <Grid container item alignItems='center' justify='space-between'>
-              <Typography className={styles.logoStyle}>Foody</Typography>
+              <Typography className={styles.logoStyle}>Foody!</Typography>
               <Hamburger
                 toggled={toggleBurger}
                 toggle={() => handleToggle()}
                 size={21}
-                color='#B76A40'
+                color='#FFFFFF'
               />
             </Grid>
           </Toolbar>

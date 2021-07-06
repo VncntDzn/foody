@@ -1,7 +1,17 @@
 import Head from 'next/head';
 import LandingPage from './home/LandingPage';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
-export default function Home() {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      padding: '0 1rem',
+    },
+  })
+);
+
+const Home = () => {
+  const styles = useStyles();
   return (
     <div>
       <Head>
@@ -13,9 +23,11 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main>
+      <main className={styles.root}>
         <LandingPage />
       </main>
     </div>
   );
-}
+};
+
+export default Home;
