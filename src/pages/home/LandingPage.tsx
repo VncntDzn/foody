@@ -28,11 +28,17 @@ const useStyles = makeStyles((theme: Theme) =>
     image: {
       zIndex: -1,
       position: 'absolute',
-      height: '100vh',
-      width: '100vw',
+      height: '80%',
+      width: '100%',
       overflow: 'hidden',
       top: 0,
       left: 0,
+      [theme.breakpoints.up('sm')]: {
+        height: '50%',
+      },
+      [theme.breakpoints.up('lg')]: {
+        height: '80%',
+      },
     },
   })
 );
