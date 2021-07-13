@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import LandingPage from './home/LandingPage';
+import AboutUs from './home/AboutUs';
+import Testimonials from './home/Testimonials';
 import { createStyles, makeStyles, Theme } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -25,6 +27,8 @@ const Home = () => {
 
       <main className={styles.root}>
         <LandingPage />
+        <AboutUs />
+        <Testimonials />
       </main>
     </div>
   );

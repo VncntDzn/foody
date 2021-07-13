@@ -18,8 +18,9 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     logoStyle: {
       fontSize: 'clamp(1.4rem, 5vw, 1.7rem)',
-      fontWeight: 600,
+      fontWeight: 500,
       color: '#FFFFFF',
+      textShadow: 'none',
     },
   })
 );
@@ -36,7 +37,7 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
         <AppBar color='transparent' style={{ backdropFilter: 'blur(3px)' }}>
           <Toolbar>
             <Grid container item alignItems='center' justify='space-between'>
-              <Typography className={styles.logoStyle}>Foody!</Typography>
+              <Typography className={styles.logoStyle}>Title</Typography>
               <Hamburger
                 toggled={toggleBurger}
                 toggle={() => handleToggle()}
