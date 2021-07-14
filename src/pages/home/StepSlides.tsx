@@ -17,8 +17,8 @@ const useStyles = makeStyles((theme: Theme) =>
     cardContainer: {
       textAlign: 'justify',
       borderRadius: '10px',
-      marginTop: '1rem',
-      width: '88%',
+
+      margin: '1rem 0',
       [theme.breakpoints.up('sm')]: {
         width: '60%',
       },
@@ -31,9 +31,6 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
-    },
-    carouselContainer: {
-      padding: '1rem 0',
     },
   })
 );
@@ -53,7 +50,7 @@ const responsive = {
 const StepSlides = () => {
   const styles = useStyles();
   return (
-    <Carousel className={styles.carouselContainer} responsive={responsive}>
+    <Carousel responsive={responsive}>
       {stepsData.map(({ id, img, content, name }) => (
         <Container className={styles.slidesContainer} key={id}>
           <Card className={styles.cardContainer} raised>

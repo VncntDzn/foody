@@ -10,28 +10,43 @@ import {
   Typography,
   Card,
   CardContent,
+  CardMedia,
+  Hidden,
 } from '@material-ui/core';
-import Slice from 'assets/home/Slice.jpg';
-import Image from 'next/image';
 
+import Image from 'next/image';
+import Slice from 'assets/home/Slice.jpg';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       marginTop: '3rem',
       textAlign: 'center',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      flexDirection: 'column',
+
+      [theme.breakpoints.up('lg')]: {
+        marginTop: '23rem',
+        flexDirection: 'row',
+        justifyContent: 'space-evenly',
+      },
     },
     image: {
-      border: '3px solid red',
-      position: 'absolute',
-      zIndex: -1,
-      height: '80%',
       width: '100%',
-      overflow: 'hidden',
+
+      [theme.breakpoints.up('md')]: {
+        height: '25rem',
+      },
     },
+
     cardContainer: {
       textAlign: 'justify',
       borderRadius: '10px',
       marginTop: '1rem',
+      [theme.breakpoints.up('sm')]: {
+        width: '30rem',
+      },
     },
   })
 );
@@ -41,25 +56,46 @@ const AboutUs = () => {
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        <Typography variant='h5'> -- ABOUT US -- </Typography>
-        <Typography color='primary'>MAKE YOUR FOOD EASILY</Typography>
-        <Card className={styles.cardContainer} raised>
-          <Image src={Slice} alt='Vincent' layout='responsive' quality={100} />
-          <CardContent>
-            <p>
-              Foody was built to help every person in the world that struggles
-              to find their meal ingredients.
-            </p>
-            <p>
-              Here in Foody, we gathered every possible meal ingredients around
-              the world and all you have to do is to search them.
-            </p>
-            <p>
-              Eat clean food, feel great about cooking and eat delicious foods
-              at your own home.
-            </p>
-          </CardContent>
-        </Card>
+        <Hidden mdDown>
+          <div style={{ width: '35vw', borderRadius: '30px' }}>
+            <Image
+              src={Slice}
+              alt='Vincent'
+              layout='responsive'
+              quality={100}
+            />
+          </div>
+        </Hidden>
+        <div>
+          <div style={{ textAlign: 'center' }}>
+            <Typography variant='h4'> -- ABOUT US -- </Typography>
+            <Typography color='primary'>MAKE YOUR FOOD EASILY</Typography>
+          </div>
+          <Card className={styles.cardContainer} raised>
+            <Hidden lgUp>
+              <CardMedia
+                className={styles.image}
+                component='img'
+                title='Slice'
+                image={Slice.src}
+              />
+            </Hidden>
+            <CardContent>
+              <p>
+                Foody was built to help every person in the world that struggles
+                to find their meal ingredients.
+              </p>
+              <p>
+                Here in Foody, we gathered every possible meal ingredients
+                around the world and all you have to do is to search them.
+              </p>
+              <p>
+                Eat clean food, feel great about cooking and eat delicious foods
+                at your own home.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </Grid>
     </MainLayout>
   );
