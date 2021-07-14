@@ -18,9 +18,8 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     logoStyle: {
       fontSize: 'clamp(1.4rem, 5vw, 1.7rem)',
-      fontWeight: 500,
-      color: '#FFFFFF',
-      textShadow: 'none',
+      color: '#B76A40',
+      fontWeight: 600,
     },
   })
 );
@@ -42,7 +41,7 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
                 toggled={toggleBurger}
                 toggle={() => handleToggle()}
                 size={21}
-                color='#FFFFFF'
+                color='#B76A40'
               />
             </Grid>
           </Toolbar>
