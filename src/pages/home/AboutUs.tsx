@@ -8,12 +8,17 @@ import {
   makeStyles,
   Theme,
   Typography,
+  Card,
+  CardContent,
 } from '@material-ui/core';
+import Slice from 'assets/home/Slice.jpg';
+import Image from 'next/image';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      border: '3px solid green',
+      marginTop: '3rem',
+      textAlign: 'center',
     },
     image: {
       border: '3px solid red',
@@ -23,6 +28,11 @@ const useStyles = makeStyles((theme: Theme) =>
       width: '100%',
       overflow: 'hidden',
     },
+    cardContainer: {
+      textAlign: 'justify',
+      borderRadius: '10px',
+      marginTop: '1rem',
+    },
   })
 );
 
@@ -31,7 +41,25 @@ const AboutUs = () => {
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        <Typography> -- About Us -- </Typography>
+        <Typography variant='h5'> -- ABOUT US -- </Typography>
+        <Typography color='primary'>MAKE YOUR FOOD EASILY</Typography>
+        <Card className={styles.cardContainer} raised>
+          <Image src={Slice} alt='Vincent' layout='responsive' quality={100} />
+          <CardContent>
+            <p>
+              Foody was built to help every person in the world that struggles
+              to find their meal ingredients.
+            </p>
+            <p>
+              Here in Foody, we gathered every possible meal ingredients around
+              the world and all you have to do is to search them.
+            </p>
+            <p>
+              Eat clean food, feel great about cooking and eat delicious foods
+              at your own home.
+            </p>
+          </CardContent>
+        </Card>
       </Grid>
     </MainLayout>
   );

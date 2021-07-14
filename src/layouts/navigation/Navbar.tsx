@@ -37,7 +37,7 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
         <AppBar color='transparent' style={{ backdropFilter: 'blur(3px)' }}>
           <Toolbar>
             <Grid container item alignItems='center' justify='space-between'>
-              <Typography className={styles.logoStyle}>Title</Typography>
+              <Typography className={styles.logoStyle}>Foodie</Typography>
               <Hamburger
                 toggled={toggleBurger}
                 toggle={() => handleToggle()}

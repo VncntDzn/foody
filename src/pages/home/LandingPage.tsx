@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
       color: '#FFFFFF',
-      paddingTop: '5rem',
+      paddingTop: '7rem',
       position: 'relative',
       height: '80vh',
 
@@ -68,7 +68,8 @@ const LandingPage = () => {
         <Grid className={styles.textsContainer}>
           <Typography variant='subtitle1'>Don't know what to cook?</Typography>
           <Typography className={styles.sloganMain}>
-            Find your favorite food at Foody!
+            Find your favorite food at{' '}
+            <span style={{ color: '#B76A40', fontWeight: 600 }}>Foodie.</span>
           </Typography>
           <Typography variant='subtitle1'>
             We've got everything for every dish.
@@ -87,7 +88,6 @@ const LandingPage = () => {
           quality={100}
         />
       </div>
-      <div></div>
     </MainLayout>
   );
 };
