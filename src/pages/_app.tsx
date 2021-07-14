@@ -1,14 +1,14 @@
-import React from 'react';
+import { useEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from 'theme';
-
+import 'globals';
 export default function MyApp(props: AppProps) {
   const { Component, pageProps } = props;
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
@@ -17,7 +17,7 @@ export default function MyApp(props: AppProps) {
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Head>
         <title>My page</title>
         <meta
@@ -30,6 +30,6 @@ export default function MyApp(props: AppProps) {
         <CssBaseline />
         <Component {...pageProps} />
       </ThemeProvider>
-    </React.Fragment>
+    </>
   );
 }

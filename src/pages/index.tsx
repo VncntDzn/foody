@@ -1,12 +1,23 @@
-import MainLayout from 'layouts/MainLayout';
 import Head from 'next/head';
-import Image from 'next/image';
-import styles from '../styles/Home.module.css';
 import LandingPage from './home/LandingPage';
+import AboutUs from './home/AboutUs';
+import Testimonials from './home/Testimonials';
+import { createStyles, makeStyles, Theme } from '@material-ui/core';
+import Steps from './home/Steps';
+import Footer from 'layouts/Footer';
 
-export default function Home() {
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      padding: '0 1rem',
+    },
+  })
+);
+
+const Home = () => {
+  const styles = useStyles();
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Foody</title>
         <meta
@@ -16,9 +27,15 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <main className={styles.main}>
+      <main className={styles.root}>
         <LandingPage />
+        <AboutUs />
+        <Steps />
+        <Testimonials />
+        <Footer />
       </main>
     </div>
   );
-}
+};
+
+export default Home;
