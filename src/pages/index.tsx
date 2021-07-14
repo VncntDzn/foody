@@ -31,6 +31,7 @@ const Home = () => {
         <LandingPage />
         <AboutUs />
         <Steps />
+        <Testimonials />
         <Footer />
       </main>
     </div>

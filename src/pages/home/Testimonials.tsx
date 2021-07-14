@@ -3,52 +3,36 @@ import PropTypes from 'prop-types';
 import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
-  Button,
   createStyles,
   makeStyles,
   Theme,
   Typography,
 } from '@material-ui/core';
-import Image from 'next/image';
-import Leafy from 'assets/home/Leafy.jpg';
+import StepSlides from './StepSlides';
+import testimonialsData from 'utils/data/TestimonialsData';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      position: 'relative',
-      marginTop: '8rem',
-      color: '#FFFFFF',
-      paddingTop: '50vh',
-    },
-
-    image: {
-      border: '3px solid red',
-      zIndex: -1,
-      position: 'fixed',
-      height: '80%',
-      width: '100%',
-      overflow: 'hidden',
-      top: '32rem',
-      left: 0,
-      [theme.breakpoints.up('sm')]: {
-        height: '50%',
-      },
-      [theme.breakpoints.up('lg')]: {
-        height: '80%',
-      },
+      marginTop: '3rem',
+      textAlign: 'center',
     },
   })
 );
 
-const AboutUs = () => {
+const Steps = () => {
   const styles = useStyles();
   return (
     <MainLayout>
-      <Grid className={styles.root}>sad</Grid>
+      <Grid className={styles.root}>
+        <Typography variant='h5'> -- WHAT OTHERS SAY -- </Typography>
+        <Typography color='primary'>CHECK OUT THESE FOODIE REVIEWS</Typography>
+        <StepSlides data={testimonialsData} />
+      </Grid>
     </MainLayout>
   );
 };
 
-AboutUs.propTypes = {};
+Steps.propTypes = {};
 
-export default AboutUs;
+export default Steps;

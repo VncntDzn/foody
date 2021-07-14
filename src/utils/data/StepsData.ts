@@ -1,7 +1,7 @@
-import Cooking from 'assets/home/Cooking.jpg';
-import Meal from 'assets/home/Meal.jpg';
-import Ingredients from 'assets/home/Ingredients.jpg';
-import Slice from 'assets/home/Slice.jpg';
+import Cooking from 'assets/home/steps/Cooking.jpg';
+import Meal from 'assets/home/steps/Meal.jpg';
+import Ingredients from 'assets/home/steps/Ingredients.jpg';
+
 const stepsData = [
   {
     id: 1,

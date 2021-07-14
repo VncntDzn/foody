@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Navbar from './navigation/Navbar';
 import { I_Navigation } from 'types/I_Navigation';
 import { Grid, createStyles, makeStyles, Theme } from '@material-ui/core';
-import Footer from './Footer';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
