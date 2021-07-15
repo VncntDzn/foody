@@ -30,8 +30,10 @@ const useStyles = makeStyles((theme: Theme) =>
         padding: ' 0',
       },
       [theme.breakpoints.up('lg')]: {
+        left: '74vw',
         height: '100vh',
-        padding: '10%',
+        width: '25vw',
+        padding: '20% 0',
       },
     },
   })
