@@ -42,10 +42,10 @@ const MobileMenu = () => {
   return (
     <Grid className={styles.root}>
       <ActiveLink href='/'>Home</ActiveLink>
-      <ActiveLink href='/search'>Search Food</ActiveLink>
       <ActiveLink href='/home/AboutUs' as='/home/AboutUs'>
-        About
+        Search Food
       </ActiveLink>
+
       <ActiveLink href='/credits'>Credits</ActiveLink>
     </Grid>
   );

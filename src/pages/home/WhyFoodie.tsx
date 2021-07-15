@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
       margin: '0 -1rem',
       color: 'white',
       [theme.breakpoints.up('sm')]: {
-        height: '25vh',
+        height: '30vh',
         margin: '2rem -1rem',
       },
     },
@@ -39,6 +39,9 @@ const useStyles = makeStyles((theme: Theme) =>
       right: 0,
       [theme.breakpoints.up('sm')]: {
         height: '25vh',
+      },
+      [theme.breakpoints.up('lg')]: {
+        height: '30vh',
       },
     },
     textsContainer: {
