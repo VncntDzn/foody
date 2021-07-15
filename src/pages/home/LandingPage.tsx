@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
         paddingTop: '8rem',
         height: '50vh',
       },
+      [theme.breakpoints.up('lg')]: {
+        marginBottom: '38vh',
+      },
     },
     buttonStyle: {
       borderRadius: '7px',

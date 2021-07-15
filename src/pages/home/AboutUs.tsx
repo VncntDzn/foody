@@ -27,7 +27,6 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
 
       [theme.breakpoints.up('lg')]: {
-        marginTop: '23rem',
         flexDirection: 'row',
         justifyContent: 'space-evenly',
       },
