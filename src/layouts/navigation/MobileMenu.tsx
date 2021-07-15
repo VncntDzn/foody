@@ -19,6 +19,20 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'space-evenly',
       padding: '50% 0',
       alignItems: 'center',
+      [theme.breakpoints.up('sm')]: {
+        right: 0,
+        left: '19vw',
+      },
+      [theme.breakpoints.up('md')]: {
+        height: '70vh',
+        width: '50vw',
+        left: '49vw',
+        padding: ' 0',
+      },
+      [theme.breakpoints.up('lg')]: {
+        height: '100vh',
+        padding: '10%',
+      },
     },
   })
 );
@@ -29,7 +43,9 @@ const MobileMenu = () => {
     <Grid className={styles.root}>
       <ActiveLink href='/'>Home</ActiveLink>
       <ActiveLink href='/search'>Search Food</ActiveLink>
-      <ActiveLink href='/about-us'>About</ActiveLink>
+      <ActiveLink href='/home/AboutUs' as='/home/AboutUs'>
+        About
+      </ActiveLink>
       <ActiveLink href='/credits'>Credits</ActiveLink>
     </Grid>
   );

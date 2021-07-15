@@ -1,11 +1,11 @@
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
-
 interface I_ActiveLink {
   children?: ReactNode;
   href?: string;
+  as?: string;
 }
-const ActiveLink = ({ children, href = '/' }: I_ActiveLink) => {
+const ActiveLink = ({ children, href = '/', as = '/' }: I_ActiveLink) => {
   const router = useRouter();
   const style = {
     marginRight: 10,
@@ -16,13 +16,8 @@ const ActiveLink = ({ children, href = '/' }: I_ActiveLink) => {
     textDecoration: 'none',
   };
 
-  const handleClick = (e: any) => {
-    e.preventDefault();
-    router.push(href);
-  };
-
   return (
-    <a href={href} onClick={handleClick} style={style}>
+    <a href={href} style={style}>
       {children}
     </a>
   );
