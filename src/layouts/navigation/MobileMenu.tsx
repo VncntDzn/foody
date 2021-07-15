@@ -1,13 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  Grid,
-  Typography,
-  createStyles,
-  makeStyles,
-  Theme,
-} from '@material-ui/core';
+import { Grid, createStyles, makeStyles, Theme } from '@material-ui/core';
 
+import ActiveLink from 'components/ActiveLink';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -32,9 +27,10 @@ const MobileMenu = () => {
   const styles = useStyles();
   return (
     <Grid className={styles.root}>
-      <Typography>Home</Typography>
-      <Typography>About</Typography>
-      <Typography>Credits</Typography>
+      <ActiveLink href='/'>Home</ActiveLink>
+      <ActiveLink href='/search'>Search Food</ActiveLink>
+      <ActiveLink href='/about-us'>About</ActiveLink>
+      <ActiveLink href='/credits'>Credits</ActiveLink>
     </Grid>
   );
 };
