@@ -57,7 +57,7 @@ const StepSlides = ({ data }: I_StepSlides) => {
   const styles = useStyles();
   return (
     <Carousel responsive={responsive}>
-      {data.map(({ id, img, content, name }) => (
+      {data?.map(({ id, img, content, name }) => (
         <Container className={styles.slidesContainer} key={id}>
           <Card className={styles.cardContainer} raised>
             <CardMedia component='img' title={name} image={img.src} />
