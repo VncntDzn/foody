@@ -9,6 +9,7 @@ import {
   Typography,
   TextField,
   InputAdornment,
+  IconButton,
 } from '@material-ui/core';
 
 import SearchIcon from '@material-ui/icons/Search';
@@ -26,7 +27,9 @@ const Searchbar = () => {
         },
         endAdornment: (
           <InputAdornment position='start'>
-            <SearchIcon />
+            <IconButton style={{ color: 'white' }}>
+              <SearchIcon />
+            </IconButton>
           </InputAdornment>
         ),
       }}

@@ -24,6 +24,9 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: 'clamp(1.4rem, 5vw, 1.7rem)',
       color: '#B76A40',
       fontWeight: 600,
+      [theme.breakpoints.up('sm')]: {
+        marginLeft: '5vw',
+      },
     },
   })
 );
@@ -40,7 +43,14 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
         <AppBar color='transparent' style={{ backdropFilter: 'blur(3px)' }}>
           <Toolbar>
             <Grid container item alignItems='center' justify='space-between'>
-              <Grid container item alignItems='center' xs={2}>
+              <Grid
+                container
+                item
+                alignItems='center'
+                xs={2}
+                sm={2}
+                justify='center'
+              >
                 <Typography className={styles.logoStyle}>Foodie</Typography>
               </Grid>
               <Grid

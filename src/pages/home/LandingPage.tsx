@@ -78,7 +78,7 @@ const LandingPage = () => {
             We've got everything for every dish.
           </Typography>
           <Button className={styles.buttonStyle} variant='contained'>
-            Search Food
+            Know More
           </Button>
         </Grid>
       </Grid>
