@@ -14,7 +14,10 @@ import Image from 'next/image';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
 import SearchIcon from '@material-ui/icons/Search';
 import Vegetables from 'assets/whyfoodie/vegetables.jpg';
-
+import reasons from 'utils/data/Reasons';
+interface I_WhyFoodie {
+  reason?: object;
+}
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -40,8 +43,14 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     textsContainer: {
       [theme.breakpoints.up('md')]: {
-        padding: '0 3rem',
+        padding: '0 7rem',
       },
+      [theme.breakpoints.up('lg')]: {
+        padding: '0 13rem',
+      },
+    },
+    reasonStyle: {
+      fontSize: 'clamp(1rem, 4.5vw, 1.4rem)',
     },
   })
 );
@@ -59,22 +68,16 @@ const WhyFoodie = () => {
         alignItems='center'
         justify='center'
       >
-        <Grid container item direction='row' alignItems='center'>
-          <IconButton color='primary'>
-            <FastfoodIcon />
-          </IconButton>
-          <Typography variant='subtitle1'>
-            Cook food easily with Foodie
-          </Typography>
-        </Grid>
-        <Grid container item direction='row' alignItems='center'>
-          <IconButton color='primary'>
-            <SearchIcon />
-          </IconButton>
-          <Typography variant='subtitle1'>
-            Search your food easily using Foodie
-          </Typography>
-        </Grid>
+        {reasons.map(({ id, reason }) => (
+          <Grid container item direction='row' alignItems='center' key={id}>
+            <IconButton color='primary'>
+              <FastfoodIcon />
+            </IconButton>
+            <Typography variant='subtitle1' className={styles.reasonStyle}>
+              {reason}
+            </Typography>
+          </Grid>
+        ))}
       </Grid>
       <div className={styles.image}>
         <Image
