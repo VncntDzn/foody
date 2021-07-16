@@ -47,7 +47,7 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
                 container
                 item
                 alignItems='center'
-                xs={2}
+                xs={3}
                 sm={2}
                 justify='center'
               >

@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Grid, createStyles, makeStyles, Theme } from '@material-ui/core';
-
+import {
+  Grid,
+  createStyles,
+  makeStyles,
+  Theme,
+  Hidden,
+} from '@material-ui/core';
+import Searchbar from 'components/Searchbar';
 import ActiveLink from 'components/ActiveLink';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -17,7 +23,7 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignContent: 'center',
       justifyContent: 'space-evenly',
-      padding: '50% 0',
+      padding: '50% 1rem',
       alignItems: 'center',
       [theme.breakpoints.up('sm')]: {
         right: 0,
@@ -45,6 +51,9 @@ const MobileMenu = () => {
     <Grid className={styles.root}>
       <ActiveLink href='/'>Home</ActiveLink>
       <ActiveLink href='/credits'>Credits</ActiveLink>
+      <Hidden smUp>
+        <Searchbar />
+      </Hidden>
     </Grid>
   );
 };
