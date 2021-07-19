@@ -10,12 +10,11 @@ import {
   Hidden,
 } from '@material-ui/core';
 import { I_Navigation } from 'types/I_Navigation';
-import SearchIcon from '@material-ui/icons/Search';
-import ElevatedScroll from './ElevatedScroll';
-import PropTypes from 'prop-types';
-import { Cross as Hamburger } from 'hamburger-react';
-import MobileMenu from './MobileMenu';
 import { Searchbar } from 'components';
+import { Cross as Hamburger } from 'hamburger-react';
+import ElevatedScroll from './ElevatedScroll';
+import MobileMenu from './MobileMenu';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     logoStyle: {
@@ -45,22 +44,22 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
                 container
                 item
                 alignItems='center'
+                justify='center'
                 xs={3}
                 sm={2}
-                justify='center'
               >
                 <Typography className={styles.logoStyle}>Foodie</Typography>
               </Grid>
               <Grid
                 container
                 alignItems='center'
-                xs={2}
-                sm={6}
-                md={4}
                 item
                 direction='row'
-                lg={3}
                 justify='space-evenly'
+                xs={2}
+                sm={6}
+                md={6}
+                lg={4}
               >
                 <Hidden xsDown>
                   <Searchbar />
@@ -81,7 +80,5 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
     </>
   );
 };
-
-Navbar.propTypes = {};
 
 export default Navbar;

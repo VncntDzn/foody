@@ -1,15 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Grid,
-  Button,
   createStyles,
   makeStyles,
   Theme,
   Typography,
 } from '@material-ui/core';
-import Image from 'next/image';
-import FooterPic from 'assets/home/FooterPic.jpg';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -32,7 +27,4 @@ const Footer = () => {
     </Grid>
   );
 };
-
-Footer.propTypes = {};
-
 export default Footer;
