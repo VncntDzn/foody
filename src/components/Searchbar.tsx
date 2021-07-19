@@ -1,11 +1,13 @@
+/**
+ * A text field component that acts as a search bar.
+ */
 import { useState } from 'react';
-import PropTypes from 'prop-types';
 import { TextField, InputAdornment, IconButton } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import SearchIcon from '@material-ui/icons/Search';
 
 const Searchbar = () => {
-  const [search, setSearch] = useState<string>('');
+  const [search, setSearch] = useState<string | null>('');
   const router = useRouter();
 
   const handleRouting = () => {
@@ -33,7 +35,5 @@ const Searchbar = () => {
     />
   );
 };
-
-Searchbar.propTypes = {};
 
 export default Searchbar;

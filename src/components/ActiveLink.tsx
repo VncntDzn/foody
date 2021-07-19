@@ -1,4 +1,4 @@
-/** A customize anchor tag.
+/** A customized anchor tag.
   @param {string} [href] - link to navigate.
   @param {ReactNode} [href] - link to navigate.
 */
