@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-
 import {
   Grid,
   createStyles,
@@ -9,15 +6,11 @@ import {
   Typography,
   IconButton,
 } from '@material-ui/core';
-
 import Image from 'next/image';
 import FastfoodIcon from '@material-ui/icons/Fastfood';
-import SearchIcon from '@material-ui/icons/Search';
 import Vegetables from 'assets/whyfoodie/vegetables.jpg';
 import reasons from 'utils/data/Reasons';
-interface I_WhyFoodie {
-  reason?: object;
-}
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -94,7 +87,5 @@ const WhyFoodie = () => {
     </Grid>
   );
 };
-
-WhyFoodie.propTypes = {};
 
 export default WhyFoodie;

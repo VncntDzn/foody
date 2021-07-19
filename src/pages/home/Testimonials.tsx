@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
   createStyles,
@@ -8,6 +5,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
+import MainLayout from 'layouts/MainLayout';
 import Slides from './Slides';
 import testimonialsData from 'utils/data/TestimonialsData';
 

@@ -46,14 +46,14 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
-const Slides = ({ data }: Readonly<I_Slides.My_Slides>) => {
+const Slides = ({ data }: Readonly<I_Slides>) => {
   const styles = useStyles();
   return (
     <Carousel responsive={responsive}>
-      {data?.map(({ id, img, content, name }: I_Slides.My_Slides) => (
+      {data?.map(({ id, img, content, name }: I_Slides) => (
         <Container className={styles.slidesContainer} key={id}>
           <Card className={styles.cardContainer} raised>
-            <CardMedia component='img' title={name} image={img.src} />
+            <CardMedia image={img?.src} component='img' title={name} />
 
             <CardContent>
               <Typography color='primary' variant='h5' gutterBottom>
