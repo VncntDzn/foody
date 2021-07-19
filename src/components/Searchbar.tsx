@@ -1,17 +1,19 @@
-import React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TextField, InputAdornment, IconButton } from '@material-ui/core';
 import { useRouter } from 'next/router';
 import SearchIcon from '@material-ui/icons/Search';
 
 const Searchbar = () => {
+  const [search, setSearch] = useState<string>('');
   const router = useRouter();
 
   const handleRouting = () => {
-    router.push('/SearchResults');
+    router.push(`/search/${search}`);
   };
   return (
     <TextField
+      onChange={(e) => setSearch(e.target.value)}
       autoFocus
       focused
       placeholder='Search food here'

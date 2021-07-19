@@ -1,5 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Grid,
   createStyles,
@@ -8,7 +6,8 @@ import {
   Hidden,
 } from '@material-ui/core';
 import Searchbar from 'components/Searchbar';
-import ActiveLink from 'components/ActiveLink';
+import { ActiveLink } from 'components';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {

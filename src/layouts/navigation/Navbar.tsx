@@ -7,9 +7,7 @@ import {
   createStyles,
   makeStyles,
   Theme,
-  TextField,
   Hidden,
-  InputAdornment,
 } from '@material-ui/core';
 import { I_Navigation } from 'types/I_Navigation';
 import SearchIcon from '@material-ui/icons/Search';
@@ -17,7 +15,7 @@ import ElevatedScroll from './ElevatedScroll';
 import PropTypes from 'prop-types';
 import { Cross as Hamburger } from 'hamburger-react';
 import MobileMenu from './MobileMenu';
-import Searchbar from 'components/Searchbar';
+import { Searchbar } from 'components';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     logoStyle: {

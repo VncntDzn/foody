@@ -1,11 +1,15 @@
+/** A customize anchor tag.
+  @param {string} [href] - link to navigate.
+  @param {ReactNode} [href] - link to navigate.
+*/
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 interface I_ActiveLink {
   children?: ReactNode;
-  href?: string;
-  as?: string;
+  href: string;
 }
-const ActiveLink = ({ children, href = '/', as = '/' }: I_ActiveLink) => {
+const ActiveLink = ({ children, href = '/' }: I_ActiveLink) => {
   const router = useRouter();
   const style = {
     marginRight: 10,
@@ -23,4 +27,8 @@ const ActiveLink = ({ children, href = '/', as = '/' }: I_ActiveLink) => {
   );
 };
 
+ActiveLink.propTypes = {
+  children: PropTypes.node.isRequired,
+  href: PropTypes.string.isRequired,
+};
 export default ActiveLink;
