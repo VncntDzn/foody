@@ -1,9 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
-  Button,
   createStyles,
   makeStyles,
   Theme,
@@ -13,9 +9,10 @@ import {
   CardMedia,
   Hidden,
 } from '@material-ui/core';
-
+import MainLayout from 'layouts/MainLayout';
 import Image from 'next/image';
 import Slice from 'assets/home/Slice.jpg';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -25,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column',
-
       [theme.breakpoints.up('lg')]: {
         flexDirection: 'row',
         justifyContent: 'space-evenly',
@@ -33,7 +29,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     image: {
       width: '100%',
-
       [theme.breakpoints.up('md')]: {
         height: '25rem',
       },
@@ -99,7 +94,5 @@ const AboutUs = () => {
     </MainLayout>
   );
 };
-
-AboutUs.propTypes = {};
 
 export default AboutUs;

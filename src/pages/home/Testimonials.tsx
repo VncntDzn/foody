@@ -8,7 +8,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
-import StepSlides from './StepSlides';
+import Slides from './Slides';
 import testimonialsData from 'utils/data/TestimonialsData';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -27,7 +27,7 @@ const Steps = () => {
       <Grid className={styles.root}>
         <Typography variant='h5'> -- WHAT OTHERS SAY -- </Typography>
         <Typography color='primary'>CHECK OUT THESE FOODIE REVIEWS</Typography>
-        <StepSlides data={testimonialsData} />
+        <Slides data={testimonialsData} />
       </Grid>
     </MainLayout>
   );

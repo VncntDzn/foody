@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
   Button,
@@ -9,6 +6,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
+import MainLayout from 'layouts/MainLayout';
 import Image from 'next/image';
 import Food from 'assets/home/Food.jpg';
 
@@ -94,7 +92,5 @@ const LandingPage = () => {
     </MainLayout>
   );
 };
-
-LandingPage.propTypes = {};
 
 export default LandingPage;

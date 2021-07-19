@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
   createStyles,
@@ -8,8 +5,9 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
-import StepSlides from './StepSlides';
+import Slides from './Slides';
 import stepsData from 'utils/data/StepsData';
+import MainLayout from 'layouts/MainLayout';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -27,7 +25,7 @@ const Steps = () => {
       <Grid className={styles.root}>
         <Typography variant='h5'> -- HOW IT WORKS -- </Typography>
         <Typography color='primary'>DINNER IS JUST 3 STEPS AWAY</Typography>
-        <StepSlides data={stepsData} />
+        <Slides data={stepsData} />
       </Grid>
     </MainLayout>
   );

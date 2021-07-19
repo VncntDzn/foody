@@ -8,22 +8,15 @@ import {
   CardMedia,
   Typography,
 } from '@material-ui/core';
+import { I_Slides } from 'types/I_Slides';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
-interface I_StepSlides {
-  data?: object;
-  id?: number;
-  img?: string;
-  content?: string;
-  name?: string;
-}
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     cardContainer: {
       textAlign: 'justify',
       borderRadius: '10px',
-
       margin: '1rem 0',
       [theme.breakpoints.up('sm')]: {
         width: '60%',
@@ -53,11 +46,11 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
-const StepSlides = ({ data }: I_StepSlides) => {
+const Slides = ({ data }: Readonly<I_Slides.My_Slides>) => {
   const styles = useStyles();
   return (
     <Carousel responsive={responsive}>
-      {data?.map(({ id, img, content, name }) => (
+      {data?.map(({ id, img, content, name }: I_Slides.My_Slides) => (
         <Container className={styles.slidesContainer} key={id}>
           <Card className={styles.cardContainer} raised>
             <CardMedia component='img' title={name} image={img.src} />
@@ -75,6 +68,6 @@ const StepSlides = ({ data }: I_StepSlides) => {
   );
 };
 
-StepSlides.propTypes = {};
+Slides.propTypes = {};
 
-export default StepSlides;
+export default Slides;
