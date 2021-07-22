@@ -1,6 +1,6 @@
 /** A customized anchor tag.
   @param {string} [href] - link to navigate.
-  @param {ReactNode} [href] - link to navigate.
+  @param {ReactNode} [children] - props.
 */
 import { ReactNode } from 'react';
 import { useRouter } from 'next/router';

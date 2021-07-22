@@ -4,55 +4,32 @@ import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
   Button,
-  createStyles,
-  makeStyles,
-  Theme,
   Typography,
   Card,
   CardContent,
   CardMedia,
 } from '@material-ui/core';
 import { useState } from 'react';
-
 import { useRouter } from 'next/router';
+import { InferGetServerSidePropsType } from 'next';
+import useStyles from './styled/index';
+import { I_ServerSideTypes } from 'types/I_ServerSideTypes';
 
-interface I_Result {
-  mealResults: object;
-  meals: string;
-  params: object;
-  context: object;
-  meal: string;
-  info: string;
-}
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      paddingTop: '7rem',
-      position: 'relative',
-      height: '80vh',
-
-      [theme.breakpoints.up('sm')]: {
-        paddingTop: '8rem',
-        height: '50vh',
-      },
-      [theme.breakpoints.up('lg')]: {
-        marginBottom: '38vh',
-      },
-    },
-  })
-);
-
-export const getServerSideProps = async (context: I_Result) => {
+export const getServerSideProps = async (
+  context: I_ServerSideTypes.I_GetServerSideProps
+) => {
   const meal = context.params.meals;
   const res = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
+    `${process.env.THE_MEAL_DB_API}/search.php?s=${meal}`
   );
   return {
     props: { mealResults: res.data },
   };
 };
-const SearchResults = ({ mealResults }: I_Result) => {
+
+const SearchResults = ({
+  mealResults,
+}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   const styles = useStyles();
   const router = useRouter();
 
@@ -65,20 +42,25 @@ const SearchResults = ({ mealResults }: I_Result) => {
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        <Typography>MEALS RESULTS FOR {meals?.toUpperCase()}</Typography>
-        {mealResults.meals.map((info) => (
-          <Card key={info.idMeal}>
-            <CardContent>
-              <CardMedia
-                component='img'
-                title='Slice'
-                image={info.strMealThumb}
-              />
-              <Typography>{info.strMeal}</Typography>
-              <Button onClick={() => getIdMeal(info)}>View More</Button>
-            </CardContent>
-          </Card>
-        ))}
+        <Typography align='center'>RECIPES FOUND FOR {meals}</Typography>
+        <Grid className={styles.cardContainer}>
+          {mealResults.meals.map((info) => (
+            <Card raised key={info.idMeal} className={styles.cardStyle}>
+              <CardContent>
+                <CardMedia
+                  className={styles.imageStyle}
+                  component='img'
+                  title='Slice'
+                  image={info.strMealThumb}
+                />
+                <Typography variant='h6'>{info.strMeal}</Typography>
+                <Typography color='primary' onClick={() => getIdMeal(info)}>
+                  View More
+                </Typography>
+              </CardContent>
+            </Card>
+          ))}
+        </Grid>
       </Grid>
     </MainLayout>
   );
