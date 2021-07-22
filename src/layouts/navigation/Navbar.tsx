@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import {
   AppBar,
   Grid,
@@ -30,14 +31,37 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const Navbar = (props: I_Navigation.I_Navbar) => {
   const styles = useStyles();
+  const router = useRouter();
+  const [backgroundColor, setBackgroundColor] = useState<string>('transparent');
   const [toggleBurger, setToggleBurger] = useState<boolean>(false);
-  const handleToggle = () => {
+
+  const PATHNAME = router.pathname;
+
+  const handleToggle = (): void => {
     setToggleBurger(!toggleBurger);
   };
+
+  const handleRouting = (): void => {
+    router.push('/');
+  };
+  useEffect(() => {
+    if (PATHNAME === '/') {
+      setBackgroundColor('transparent');
+    } else if (PATHNAME === '/search/[meals]') {
+      setBackgroundColor('red');
+    } else {
+      setBackgroundColor('green');
+    }
+  }, [PATHNAME]);
   return (
     <>
       <ElevatedScroll {...props}>
-        <AppBar color='transparent' style={{ backdropFilter: 'blur(3px)' }}>
+        <AppBar
+          style={{
+            backdropFilter: 'blur(3px)',
+            backgroundColor: backgroundColor,
+          }}
+        >
           <Toolbar>
             <Grid container item alignItems='center' justify='space-between'>
               <Grid
@@ -48,7 +72,12 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
                 xs={3}
                 sm={2}
               >
-                <Typography className={styles.logoStyle}>Foodie</Typography>
+                <Typography
+                  onClick={handleRouting}
+                  className={styles.logoStyle}
+                >
+                  Foodie
+                </Typography>
               </Grid>
               <Grid
                 container

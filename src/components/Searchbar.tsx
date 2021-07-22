@@ -16,17 +16,15 @@ const Searchbar = () => {
   return (
     <TextField
       onChange={(e) => setSearch(e.target.value)}
+      color='primary'
       autoFocus
       focused
       placeholder='Search food here'
       variant='outlined'
       InputProps={{
-        style: {
-          color: 'white',
-        },
         endAdornment: (
           <InputAdornment position='start'>
-            <IconButton onClick={handleRouting} style={{ color: 'white' }}>
+            <IconButton color='primary' onClick={handleRouting}>
               <SearchIcon />
             </IconButton>
           </InputAdornment>

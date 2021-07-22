@@ -44,9 +44,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const getServerSideProps = async (context: I_Result) => {
-  const meal = context.params.meals;
+  const id = context.params.idMeal;
   const res = await axios.get(
-    `https://www.themealdb.com/api/json/v1/1/search.php?s=${meal}`
+    `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${id}`
   );
   return {
     props: { mealResults: res.data },
@@ -58,27 +58,10 @@ const SearchResults = ({ mealResults }: I_Result) => {
 
   const { meals } = router.query;
 
-  const getIdMeal = (param: object): void => {
-    router.push(`/result/${param.idMeal}`);
-  };
-
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        <Typography>MEALS RESULTS FOR {meals?.toUpperCase()}</Typography>
-        {mealResults.meals.map((info) => (
-          <Card key={info.idMeal}>
-            <CardContent>
-              <CardMedia
-                component='img'
-                title='Slice'
-                image={info.strMealThumb}
-              />
-              <Typography>{info.strMeal}</Typography>
-              <Button onClick={() => getIdMeal(info)}>View More</Button>
-            </CardContent>
-          </Card>
-        ))}
+        <Typography>sad</Typography>
       </Grid>
     </MainLayout>
   );
