@@ -10,7 +10,7 @@ const Searchbar = () => {
   const [search, setSearch] = useState<string | null>('');
   const router = useRouter();
 
-  const handleRouting = () => {
+  const handleRouting = (): void => {
     router.push(`/search/${search}`);
   };
   return (
