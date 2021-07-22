@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import { InferGetServerSidePropsType } from 'next';
 import useStyles from './styled/index';
 import { I_ServerSideTypes } from 'types/I_ServerSideTypes';
-import CustomPagination from 'components/CustomPagination';
+import { CustomPagination } from 'components';
 import { useState } from 'react';
 export const getServerSideProps = async (
   context: I_ServerSideTypes.I_GetServerSideProps
@@ -43,9 +43,9 @@ const SearchResults = ({
   const onPageChange = ({ selected: selectedPage }) => {
     setCurrentPage(selectedPage);
   };
-  const PER_PAGE = 1;
+  const PER_PAGE = 4;
   const offset = currentPage * PER_PAGE;
-  let pageCount = mealResults?.meals.length / 1;
+  let pageCount = mealResults?.meals.length / 6;
   return (
     <MainLayout>
       <Grid className={styles.root}>

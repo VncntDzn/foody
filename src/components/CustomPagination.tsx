@@ -3,7 +3,7 @@
  * @param {Number} [pageCount] - number of pages.
  * @param {function} [onPageChange] - function to switch pages in pagination.
  */
-
+import { I_Components } from 'types/I_Components';
 import { makeStyles } from '@material-ui/core';
 import ReactPaginate from 'react-paginate';
 import PropTypes from 'prop-types';
@@ -38,7 +38,10 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '20%',
   },
 }));
-const CustomPagination = ({ pageCount, onPageChange }) => {
+const CustomPagination = ({
+  pageCount,
+  onPageChange,
+}: I_Components.I_Pagination) => {
   const classes = useStyles();
   return (
     <ReactPaginate

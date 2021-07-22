@@ -3,7 +3,6 @@ export namespace I_ServerSideTypes {
     context: {} | any;
     params: {
       meals: string;
-    }; 
-  },
-
+    };
+  }
 }
