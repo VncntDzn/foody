@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme: Theme) =>
         flexDirection: 'row',
         justifyContent: 'center',
         flex: 1,
-        border: '3px solid red',
       },
     },
     cardStyle: {
@@ -33,7 +32,6 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.up('lg')]: {
         width: '20vw',
-        border: '3px solid red',
       },
     },
     imageStyle: {
