@@ -28,11 +28,10 @@ const SearchResults = ({ results }: { results: {} | any }) => {
   const styles = useStyles();
   const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(0);
-
   const { meals } = router.query;
 
-  const getIdMeal = (param: { idMeal: string }): void => {
-    router.push(`/result/${param.idMeal}`);
+  const getIdMeal = (idMeal: { idMeal: any }): void => {
+    router.push(`/result/${idMeal}`);
   };
 
   // get the current page
@@ -60,26 +59,33 @@ const SearchResults = ({ results }: { results: {} | any }) => {
               <Typography align='center'>RECIPES FOUND FOR {meals}</Typography>
               {results
                 .slice(offset, offset + PER_PAGE)
-                .map((info: { info: object }) => (
-                  <Card key={info.idMeal} raised className={styles.cardStyle}>
-                    <CardContent>
-                      <CardMedia
-                        className={styles.imageStyle}
-                        component='img'
-                        title='Slice'
-                        image={info.strMealThumb}
-                      />
-                      <Typography variant='h6'>{info.strCategory}</Typography>
-                      <Typography variant='h6'>{info.strMeal}</Typography>
-                      <Typography
-                        color='primary'
-                        onClick={() => getIdMeal(info)}
-                      >
-                        View More
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                ))}
+                .map(
+                  ({
+                    idMeal,
+                    strMealThumb,
+                    strCategory,
+                    strMeal,
+                  }: I_API.I_Results) => (
+                    <Card key={idMeal} raised className={styles.cardStyle}>
+                      <CardContent>
+                        <CardMedia
+                          className={styles.imageStyle}
+                          component='img'
+                          title='Slice'
+                          image={strMealThumb}
+                        />
+                        <Typography variant='h6'>{strCategory}</Typography>
+                        <Typography variant='h6'>{strMeal}</Typography>
+                        <Typography
+                          color='primary'
+                          onClick={() => getIdMeal(idMeal)}
+                        >
+                          View More
+                        </Typography>
+                      </CardContent>
+                    </Card>
+                  )
+                )}
               <Grid container justify='center' alignItems='center'>
                 <CustomPagination
                   pageCount={pageCount}

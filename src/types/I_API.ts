@@ -5,4 +5,11 @@ export namespace I_API {
       meals: string;
     };
   }
+
+  export interface I_Results {
+    idMeal: any;
+    strMealThumb: string;
+    strCategory: string;
+    strMeal: string;
+  }
 }

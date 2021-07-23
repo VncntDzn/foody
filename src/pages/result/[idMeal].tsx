@@ -88,7 +88,7 @@ export const getServerSideProps = async (context: I_Result) => {
     props: { result: res.data },
   };
 };
-const SearchResults = ({ result }: I_Result) => {
+const SearchResults = ({ result }) => {
   const styles = useStyles();
   const router = useRouter();
 
