@@ -47,10 +47,8 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
   useEffect(() => {
     if (PATHNAME === '/') {
       setBackgroundColor('transparent');
-    } else if (PATHNAME === '/search/[meals]') {
-      setBackgroundColor('white');
     } else {
-      setBackgroundColor('green');
+      setBackgroundColor('white');
     }
   }, [PATHNAME]);
   return (
