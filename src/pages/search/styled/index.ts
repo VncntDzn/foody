@@ -18,9 +18,11 @@ const useStyles = makeStyles((theme: Theme) =>
       display: 'flex',
       flexDirection: 'column',
       [theme.breakpoints.up('sm')]: {
+        flexWrap: 'wrap',
         flexDirection: 'row',
         justifyContent: 'center',
-        flexWrap: 'wrap',
+        flex: 1,
+        border: '3px solid red',
       },
     },
     cardStyle: {
@@ -31,12 +33,16 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       [theme.breakpoints.up('lg')]: {
         width: '20vw',
+        border: '3px solid red',
       },
     },
     imageStyle: {
       [theme.breakpoints.up('sm')]: {
         height: '20vh',
       },
+    },
+    mealsContainer: {
+      paddingLeft: '1rem',
     },
   })
 );

@@ -48,7 +48,7 @@ const Navbar = (props: I_Navigation.I_Navbar) => {
     if (PATHNAME === '/') {
       setBackgroundColor('transparent');
     } else if (PATHNAME === '/search/[meals]') {
-      setBackgroundColor('red');
+      setBackgroundColor('white');
     } else {
       setBackgroundColor('green');
     }

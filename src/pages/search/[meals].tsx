@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
-import Head from 'next/head';
 import { I_API } from 'types/I_API';
 import { CustomPagination } from 'components';
 import {
@@ -11,6 +10,7 @@ import {
   CardContent,
   CardMedia,
 } from '@material-ui/core';
+import Head from 'next/head';
 import axios from 'axios';
 import MainLayout from 'layouts/MainLayout';
 import useStyles from './styled/index';
@@ -43,9 +43,11 @@ const SearchResults = ({ results }: { results: {} | any }) => {
   }) => {
     setCurrentPage(selectedPage);
   };
-  const PER_PAGE = 4;
+
+  let PER_PAGE = 6;
   const offset = currentPage * PER_PAGE;
   let pageCount = results?.length ? results?.length / 6 : 0;
+
   return (
     <MainLayout>
       <Head>
@@ -53,39 +55,41 @@ const SearchResults = ({ results }: { results: {} | any }) => {
         <meta name='viewport' content='initial-scale=1.0, width=device-width' />
       </Head>
       <Grid className={styles.root}>
+        <Typography className={styles.mealsContainer}>
+          Recipes found for:{' '}
+          <span style={{ fontStyle: 'italic', fontWeight: 600 }}>{meals}</span>
+        </Typography>
         <Grid className={styles.cardContainer}>
           {results?.length ? (
             <>
-              <Typography align='center'>RECIPES FOUND FOR {meals}</Typography>
               {results
                 .slice(offset, offset + PER_PAGE)
-                .map(
-                  ({
-                    idMeal,
-                    strMealThumb,
-                    strCategory,
-                    strMeal,
-                  }: I_API.I_Results) => (
-                    <Card key={idMeal} raised className={styles.cardStyle}>
-                      <CardContent>
-                        <CardMedia
-                          className={styles.imageStyle}
-                          component='img'
-                          title='Slice'
-                          image={strMealThumb}
-                        />
-                        <Typography variant='h6'>{strCategory}</Typography>
-                        <Typography variant='h6'>{strMeal}</Typography>
-                        <Typography
-                          color='primary'
-                          onClick={() => getIdMeal(idMeal)}
-                        >
-                          View More
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  )
-                )}
+                .map(({ idMeal, strMealThumb, strMeal }: I_API.I_Results) => (
+                  <Card key={idMeal} raised className={styles.cardStyle}>
+                    <CardContent>
+                      <CardMedia
+                        className={styles.imageStyle}
+                        component='img'
+                        title='Slice'
+                        image={strMealThumb}
+                      />
+
+                      <Typography
+                        variant='subtitle1'
+                        style={{ fontWeight: 600, marginTop: '1rem' }}
+                      >
+                        {strMeal}
+                      </Typography>
+                      <Typography
+                        onClick={() => getIdMeal(idMeal)}
+                        color='primary'
+                        variant='subtitle2'
+                      >
+                        View More
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                ))}
               <Grid container justify='center' alignItems='center'>
                 <CustomPagination
                   pageCount={pageCount}
