@@ -20,8 +20,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '0.8rem 0',
     paddingRight: '1rem',
     boxShadow: '0 8px 16px 0 rgba(0,0,0,0.2)',
-    backgroundColor: '#20316A',
+    backgroundColor: '#B76A40',
     width: '100%',
+    margin: '1rem',
     [theme.breakpoints.up('sm')]: {
       width: '20rem',
     },
@@ -45,8 +46,8 @@ const CustomPagination = ({
   const classes = useStyles();
   return (
     <ReactPaginate
-      previousLabel={<ArrowLeftIcon />}
-      nextLabel={<ArrowRightIcon />}
+      previousLabel={<ArrowLeftIcon style={{ color: 'white' }} />}
+      nextLabel={<ArrowRightIcon style={{ color: 'white' }} />}
       breakLabel={'...'}
       breakClassName={'break-me'}
       pageCount={pageCount}

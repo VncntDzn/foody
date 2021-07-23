@@ -156,8 +156,8 @@ const SearchResults = ({ result }: I_Result) => {
               ))}
             </Grid>
             <hr />
-            <Typography color='primary' variant='h5'>
-              Instructions
+            <Typography color='primary' variant='h5' align='center'>
+              -- How to cook --
             </Typography>
             {data.strInstructions.split('.').map((tag, i) => (
               <ul key={i}>

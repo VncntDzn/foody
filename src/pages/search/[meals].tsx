@@ -1,5 +1,9 @@
-import axios from 'axios';
-import MainLayout from 'layouts/MainLayout';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
+import { GetServerSideProps } from 'next';
+import Head from 'next/head';
+import { I_API } from 'types/I_API';
+import { CustomPagination } from 'components';
 import {
   Grid,
   Typography,
@@ -7,77 +11,88 @@ import {
   CardContent,
   CardMedia,
 } from '@material-ui/core';
-import { useRouter } from 'next/router';
-import { InferGetServerSidePropsType } from 'next';
+import axios from 'axios';
+import MainLayout from 'layouts/MainLayout';
 import useStyles from './styled/index';
-import { I_ServerSideTypes } from 'types/I_ServerSideTypes';
-import { CustomPagination } from 'components';
-import { useState } from 'react';
-export const getServerSideProps = async (
-  context: I_ServerSideTypes.I_GetServerSideProps
-) => {
+
+export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const meal = context.params.meals;
-  const res = await axios.get(
-    `${process.env.THE_MEAL_DB_API}/search.php?s=${meal}`
-  );
+  const res = await axios.get(`${process.env.THEMEALDB}/search.php?s=${meal}`);
 
   return {
-    props: { mealResults: res.data },
+    props: { results: res.data.meals },
   };
 };
 
-const SearchResults = ({
-  mealResults,
-}: InferGetServerSidePropsType<typeof getServerSideProps>) => {
+const SearchResults = ({ results }: { results: {} | any }) => {
   const styles = useStyles();
   const router = useRouter();
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState<number>(0);
 
   const { meals } = router.query;
 
-  const getIdMeal = (param: object): void => {
+  const getIdMeal = (param: { idMeal: string }): void => {
     router.push(`/result/${param.idMeal}`);
   };
 
   // get the current page
-  const onPageChange = ({ selected: selectedPage }) => {
+  const onPageChange = ({
+    selected: selectedPage,
+  }: {
+    selected: number;
+    selectedPage: number;
+  }) => {
     setCurrentPage(selectedPage);
   };
   const PER_PAGE = 4;
   const offset = currentPage * PER_PAGE;
-  let pageCount = mealResults?.meals.length / 6;
+  let pageCount = results?.length ? results?.length / 6 : 0;
   return (
     <MainLayout>
+      <Head>
+        <title>Foodie | {meals} </title>
+        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+      </Head>
       <Grid className={styles.root}>
-        <Typography align='center'>RECIPES FOUND FOR {meals}</Typography>
         <Grid className={styles.cardContainer}>
-          {mealResults?.meals.length &&
-            mealResults?.meals
-              .slice(offset, offset + PER_PAGE)
-              .map((info, i) => (
-                <Card
-                  onClick={() => console.log(pageCount)}
-                  raised
-                  key={info.idMeal}
-                  className={styles.cardStyle}
-                >
-                  <CardContent>
-                    <CardMedia
-                      className={styles.imageStyle}
-                      component='img'
-                      title='Slice'
-                      image={info.strMealThumb}
-                    />
-                    <Typography variant='h6'>{info.strMeal}</Typography>
-                    <Typography color='primary' onClick={() => getIdMeal(info)}>
-                      View More
-                    </Typography>
-                  </CardContent>
-                </Card>
-              ))}
+          {results?.length ? (
+            <>
+              <Typography align='center'>RECIPES FOUND FOR {meals}</Typography>
+              {results
+                .slice(offset, offset + PER_PAGE)
+                .map((info: { info: object }) => (
+                  <Card key={info.idMeal} raised className={styles.cardStyle}>
+                    <CardContent>
+                      <CardMedia
+                        className={styles.imageStyle}
+                        component='img'
+                        title='Slice'
+                        image={info.strMealThumb}
+                      />
+                      <Typography variant='h6'>{info.strCategory}</Typography>
+                      <Typography variant='h6'>{info.strMeal}</Typography>
+                      <Typography
+                        color='primary'
+                        onClick={() => getIdMeal(info)}
+                      >
+                        View More
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                ))}
+              <Grid container justify='center' alignItems='center'>
+                <CustomPagination
+                  pageCount={pageCount}
+                  onPageChange={onPageChange}
+                />
+              </Grid>
+            </>
+          ) : (
+            <Typography align='center' variant='h6'>
+              Recipe Not Found
+            </Typography>
+          )}
         </Grid>
-
-        <CustomPagination pageCount={pageCount} onPageChange={onPageChange} />
       </Grid>
     </MainLayout>
   );
