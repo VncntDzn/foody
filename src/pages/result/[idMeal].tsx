@@ -40,7 +40,7 @@ const MealResult = ({ result }: { result: {} | any }) => {
         <BreadcrumbsComponent />
 
         {result.map((data: I_API.I_Data) => (
-          <div key={data.idMeal}>
+          <div key={data?.idMeal}>
             <div className={styles.youtubeContainer}>
               <ReactPlayer
                 height="100%"
