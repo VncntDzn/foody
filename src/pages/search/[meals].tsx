@@ -30,7 +30,7 @@ const SearchResults = ({ results }: { results: {} | any }) => {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const { meals } = router.query;
 
-  const getIdMeal = (idMeal: { idMeal: any }): void => {
+  const getIdMeal = (idMeal: string | number): void => {
     router.push(`/result/${idMeal}`);
   };
 
