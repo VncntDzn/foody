@@ -8,15 +8,13 @@ import {
   createStyles,
   makeStyles,
   Theme,
+  Typography,
 } from "@material-ui/core";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { TabPanel } from "components";
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import Tags from "./Tags";
-import Instructions from "./Instructions";
-import Ingredients from "./Ingredients";
 import { I_API } from "types/I_API";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -93,17 +91,70 @@ const MealResult = ({ result }: { result: {} | any }) => {
               />
             </div>
             <hr />
-            <Tags data={data} />
+
+            <Grid container wrap="wrap" justify="flex-start">
+              <Grid
+                container
+                item
+                justify="center"
+                alignContent="center"
+                alignItems="center"
+                xs={3}
+                md={2}
+                sm={2}
+                lg={1}
+              >
+                <Typography color="primary" align="center">
+                  Tags:
+                </Typography>
+              </Grid>
+
+              {data?.strTags?.split(",").map((tag: string, i: number) => (
+                <Typography key={i} variant="subtitle1">
+                  {tag}, &nbsp;
+                </Typography>
+              ))}
+            </Grid>
             <hr />
             <Tabs value={value} onChange={handleChange}>
               <Tab label="Instructions" />
               <Tab label="Ingredients" />
             </Tabs>
             <TabPanel value={value} index={0}>
-              <Instructions strInstructions={data.strInstructions} />
+              <div>
+                <Typography color="primary" variant="h5" align="center">
+                  -- How to cook --
+                </Typography>
+                {data.strInstructions
+                  ?.split(".")
+                  .map((tag: string, i: number) => (
+                    <ul key={i}>
+                      <li>{tag}</li>
+                    </ul>
+                  ))}
+              </div>
             </TabPanel>
             <TabPanel value={value} index={1}>
-              <Ingredients data={data} />
+              <Grid container direction="row" justify="center">
+                <Grid item sm={4}>
+                  <ul>
+                    <li>{data?.strIngredient1}</li>
+                    <li>{data?.strIngredient2}</li>
+                    <li>{data?.strIngredient3}</li>
+                    <li>{data?.strIngredient4}</li>
+                    <li>{data?.strIngredient5}</li>
+                  </ul>
+                </Grid>
+                <Grid item sm={4}>
+                  <ul>
+                    <li>{data?.strIngredient6}</li>
+                    <li>{data?.strIngredient7}</li>
+                    <li>{data?.strIngredient8}</li>
+                    <li>{data?.strIngredient9}</li>
+                    <li>{data?.strIngredient10}</li>
+                  </ul>
+                </Grid>
+              </Grid>
             </TabPanel>
             <hr />
             <Link color="primary" href={data.strSource}>
