@@ -9,6 +9,6 @@ export namespace I_Components {
     children: ReactNode;
     value: string | number | null;
     index: number;
-    other: unknown;
+    other?: unknown;
   } 
 }

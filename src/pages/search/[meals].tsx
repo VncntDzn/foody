@@ -1,19 +1,19 @@
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
-import { GetServerSideProps } from 'next';
-import { I_API } from 'types/I_API';
-import { CustomPagination } from 'components';
+import { useState } from "react";
+import { useRouter } from "next/router";
+import { GetServerSideProps } from "next";
+import { I_API } from "types/I_API";
+import { CustomPagination } from "components";
 import {
   Grid,
   Typography,
   Card,
   CardContent,
   CardMedia,
-} from '@material-ui/core';
-import Head from 'next/head';
-import axios from 'axios';
-import MainLayout from 'layouts/MainLayout';
-import useStyles from './styled/index';
+} from "@material-ui/core";
+import Head from "next/head";
+import axios from "axios";
+import MainLayout from "layouts/MainLayout";
+import useStyles from "./styled/index";
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const meal = context.params.meals;
@@ -52,12 +52,12 @@ const SearchResults = ({ results }: { results: {} | any }) => {
     <MainLayout>
       <Head>
         <title>Foodie | {meals} </title>
-        <meta name='viewport' content='initial-scale=1.0, width=device-width' />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Grid className={styles.root}>
         <Typography className={styles.mealsContainer}>
-          Recipes found for:{' '}
-          <span style={{ fontStyle: 'italic', fontWeight: 600 }}>{meals}</span>
+          Recipes found for:{" "}
+          <span style={{ fontStyle: "italic", fontWeight: 600 }}>{meals}</span>
         </Typography>
         <Grid className={styles.cardContainer}>
           {results?.length ? (
@@ -69,28 +69,29 @@ const SearchResults = ({ results }: { results: {} | any }) => {
                     <CardContent>
                       <CardMedia
                         className={styles.imageStyle}
-                        component='img'
-                        title='Slice'
+                        component="img"
+                        title="Slice"
                         image={strMealThumb}
                       />
 
                       <Typography
-                        variant='subtitle1'
-                        style={{ fontWeight: 600, marginTop: '1rem' }}
+                        variant="subtitle1"
+                        style={{ fontWeight: 600, marginTop: "1rem" }}
                       >
                         {strMeal}
                       </Typography>
                       <Typography
                         onClick={() => getIdMeal(idMeal)}
-                        color='primary'
-                        variant='subtitle2'
+                        color="primary"
+                        variant="subtitle2"
+                        className={styles.viewMoreContainer}
                       >
                         View More
                       </Typography>
                     </CardContent>
                   </Card>
                 ))}
-              <Grid container justify='center' alignItems='center'>
+              <Grid container justify="center" alignItems="center">
                 <CustomPagination
                   pageCount={pageCount}
                   onPageChange={onPageChange}
@@ -98,7 +99,7 @@ const SearchResults = ({ results }: { results: {} | any }) => {
               </Grid>
             </>
           ) : (
-            <Typography align='center' variant='h6'>
+            <Typography align="center" variant="h6">
               Recipe Not Found
             </Typography>
           )}

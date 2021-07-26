@@ -1,13 +1,16 @@
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
-import { Typography } from '@material-ui/core';
-const Instructions = ({ data }) => {
+import { Typography } from "@material-ui/core";
+
+import { I_API } from "types/I_API";
+
+const Instructions = ({ strInstructions }: {strInstructions: any}) => {
   return (
     <div>
-      <Typography color='primary' variant='h5' align='center'>
+      <Typography color="primary" variant="h5" align="center">
         -- How to cook --
       </Typography>
-      {data?.strInstructions.split('.').map((tag, i) => (
+      {strInstructions.split(".").map((tag: string, i: number) => (
         <ul key={i}>
           <li>{tag}</li>
         </ul>

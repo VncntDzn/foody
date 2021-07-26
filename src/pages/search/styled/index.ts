@@ -42,6 +42,12 @@ const useStyles = makeStyles((theme: Theme) =>
     mealsContainer: {
       paddingLeft: '1rem',
     },
+    viewMoreContainer: {
+      "&:hover": {
+        letterSpacing: '1px',
+        cursor: "pointer",
+      },
+    },
   })
 );
 
