@@ -67,13 +67,13 @@ const LandingPage = () => {
     <MainLayout>
       <Grid className={styles.root}>
         <Grid className={styles.textsContainer}>
-          <Typography variant='subtitle1'>Don't know what to cook?</Typography>
+          <Typography variant='subtitle1'>Dont know what to cook?</Typography>
           <Typography className={styles.sloganMain}>
             Find your favorite food at{' '}
             <span style={{ color: '#B76A40', fontWeight: 600 }}>Foodie.</span>
           </Typography>
           <Typography variant='subtitle1'>
-            We've got everything for every dish.
+            We have everything for every dish.
           </Typography>
           <Button className={styles.buttonStyle} variant='contained'>
             Know More
