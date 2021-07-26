@@ -10,7 +10,7 @@ const Instructions = ({ strInstructions }: {strInstructions: any}) => {
       <Typography color="primary" variant="h5" align="center">
         -- How to cook --
       </Typography>
-      {strInstructions.split(".").map((tag: string, i: number) => (
+      {strInstructions?.split(".").map((tag: string, i: number) => (
         <ul key={i}>
           <li>{tag}</li>
         </ul>

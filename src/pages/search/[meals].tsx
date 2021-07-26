@@ -9,11 +9,11 @@ import {
   Card,
   CardContent,
   CardMedia,
+  createStyles, makeStyles, Theme 
 } from "@material-ui/core";
 import Head from "next/head";
 import axios from "axios";
-import MainLayout from "layouts/MainLayout";
-import useStyles from "./styled/index";
+import MainLayout from "layouts/MainLayout"; 
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const meal = context.params.meals;
@@ -24,6 +24,57 @@ export const getServerSideProps: GetServerSideProps = async (context: any) => {
   };
 };
 
+
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      paddingTop: '5rem',
+      position: 'relative',
+      height: '80vh',
+      [theme.breakpoints.up('sm')]: {
+        paddingTop: '8rem',
+        height: '50vh',
+      },
+      [theme.breakpoints.up('lg')]: {
+        marginBottom: '38vh',
+      },
+    },
+    cardContainer: {
+      display: 'flex',
+      flexDirection: 'column',
+      [theme.breakpoints.up('sm')]: {
+        flexWrap: 'wrap',
+        flexDirection: 'row',
+        justifyContent: 'center',
+        flex: 1,
+      },
+    },
+    cardStyle: {
+      margin: '1rem',
+      borderRadius: '10px',
+      [theme.breakpoints.up('sm')]: {
+        width: '35vw',
+      },
+      [theme.breakpoints.up('lg')]: {
+        width: '20vw',
+      },
+    },
+    imageStyle: {
+      [theme.breakpoints.up('sm')]: {
+        height: '20vh',
+      },
+    },
+    mealsContainer: {
+      paddingLeft: '1rem',
+    },
+    viewMoreContainer: {
+      "&:hover": {
+        letterSpacing: '1px',
+        cursor: "pointer",
+      },
+    },
+  })
+);
 const SearchResults = ({ results }: { results: {} | any }) => {
   const styles = useStyles();
   const router = useRouter();
@@ -90,7 +141,7 @@ const SearchResults = ({ results }: { results: {} | any }) => {
                       </Typography>
                     </CardContent>
                   </Card>
-                ))}
+                ))} 
               <Grid container justify="center" alignItems="center">
                 <CustomPagination
                   pageCount={pageCount}
