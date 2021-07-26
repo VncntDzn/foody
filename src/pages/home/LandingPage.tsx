@@ -1,6 +1,3 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import MainLayout from 'layouts/MainLayout';
 import {
   Grid,
   Button,
@@ -9,6 +6,7 @@ import {
   Theme,
   Typography,
 } from '@material-ui/core';
+import MainLayout from 'layouts/MainLayout';
 import Image from 'next/image';
 import Food from 'assets/home/Food.jpg';
 
@@ -23,6 +21,9 @@ const useStyles = makeStyles((theme: Theme) =>
       [theme.breakpoints.up('sm')]: {
         paddingTop: '8rem',
         height: '50vh',
+      },
+      [theme.breakpoints.up('lg')]: {
+        marginBottom: '38vh',
       },
     },
     buttonStyle: {
@@ -75,7 +76,7 @@ const LandingPage = () => {
             We've got everything for every dish.
           </Typography>
           <Button className={styles.buttonStyle} variant='contained'>
-            Search Food
+            Know More
           </Button>
         </Grid>
       </Grid>
@@ -91,7 +92,5 @@ const LandingPage = () => {
     </MainLayout>
   );
 };
-
-LandingPage.propTypes = {};
 
 export default LandingPage;

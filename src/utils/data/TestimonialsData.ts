@@ -7,7 +7,7 @@ const testimonialsData = [
     id: 1,
     img: Testimonial_1,
     name: 'Angela Nicole',
-    content: `Foodie is a big help for me because I can easily search foods that I want to cook.`,
+    content: `I can cook my favorite meal easily because of Foodie.`,
   },
   {
     id: 2,

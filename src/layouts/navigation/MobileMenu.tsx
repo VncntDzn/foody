@@ -1,12 +1,12 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import {
   Grid,
-  Typography,
   createStyles,
   makeStyles,
   Theme,
+  Hidden,
 } from '@material-ui/core';
+import Searchbar from 'components/Searchbar';
+import { ActiveLink } from 'components';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -22,8 +22,24 @@ const useStyles = makeStyles((theme: Theme) =>
       flexDirection: 'column',
       alignContent: 'center',
       justifyContent: 'space-evenly',
-      padding: '50% 0',
+      padding: '50% 1rem',
       alignItems: 'center',
+      [theme.breakpoints.up('sm')]: {
+        right: 0,
+        left: '19vw',
+      },
+      [theme.breakpoints.up('md')]: {
+        height: '70vh',
+        width: '50vw',
+        left: '49vw',
+        padding: ' 0',
+      },
+      [theme.breakpoints.up('lg')]: {
+        left: '74vw',
+        height: '100vh',
+        width: '25vw',
+        padding: '20% 0',
+      },
     },
   })
 );
@@ -32,9 +48,11 @@ const MobileMenu = () => {
   const styles = useStyles();
   return (
     <Grid className={styles.root}>
-      <Typography>Home</Typography>
-      <Typography>About</Typography>
-      <Typography>Credits</Typography>
+      <ActiveLink href='/'>Home</ActiveLink>
+      <ActiveLink href='/credits'>Credits</ActiveLink>
+      <Hidden smUp>
+        <Searchbar />
+      </Hidden>
     </Grid>
   );
 };

@@ -1,8 +1,8 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Navbar from './navigation/Navbar';
 import { I_Navigation } from 'types/I_Navigation';
 import { Grid, createStyles, makeStyles, Theme } from '@material-ui/core';
+import PropTypes from 'prop-types';
+import Navbar from './navigation/Navbar';
+
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
@@ -25,6 +25,8 @@ const MainLayout = ({ children }: I_Navigation.I_MainLayout) => {
   );
 };
 
-MainLayout.propTypes = {};
+MainLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+};
 
 export default MainLayout;
