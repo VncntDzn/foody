@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 export namespace I_Components {
   export interface I_PaginationTypes {
     pageCount: number;
-    onPageChange: () => void;
+    onPageChange: any;
   }
 
   export interface I_TabPanel {
@@ -10,5 +10,5 @@ export namespace I_Components {
     value: string | number | null;
     index: number;
     other?: unknown;
-  } 
+  }
 }
