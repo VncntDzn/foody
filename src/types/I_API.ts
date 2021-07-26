@@ -21,6 +21,7 @@ export namespace I_API {
     strSource?: string;
     data?: {
       idMeal?: string;
+      strTags?: string;
       strInstructions?: string;
       strIngredient1?: string;
       strIngredient2?: string;
