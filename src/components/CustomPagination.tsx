@@ -42,7 +42,7 @@ const useStyles = makeStyles((theme) => ({
 const CustomPagination = ({
   pageCount,
   onPageChange,
-}: I_Components.I_Pagination) => {
+}: I_Components.I_PaginationTypes) => {
   const classes = useStyles();
   return (
     <ReactPaginate
