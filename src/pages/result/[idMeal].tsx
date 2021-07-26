@@ -12,6 +12,7 @@ import BreadcrumbsComponent from "./BreadcrumbsComponent";
 import Instructions from "./Instructions";
 import Ingredients from "./Ingredients";
 import { I_API } from "types/I_API";
+
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const id = context.params.idMeal;
   const res = await axios.post(`${process.env.THEMEALDB}/lookup.php?i=${id}`);
@@ -39,8 +40,8 @@ const MealResult = ({ result }: { result: {} | any }) => {
       <Grid className={styles.root}>
         <BreadcrumbsComponent />
 
-        {result.map((data: I_API.I_Data) => (
-          <div key={data?.idMeal}>
+        {result.map((data: I_API.I_Data, i: number) => (
+          <div key={i}>
             <div className={styles.youtubeContainer}>
               <ReactPlayer
                 height="100%"
