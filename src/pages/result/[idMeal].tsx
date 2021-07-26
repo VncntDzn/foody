@@ -1,17 +1,24 @@
 import axios from "axios";
 import MainLayout from "layouts/MainLayout";
-import { Grid, Link, Tabs, Tab ,createStyles, makeStyles, Theme} from "@material-ui/core";
+import {
+  Grid,
+  Link,
+  Tabs,
+  Tab,
+  createStyles,
+  makeStyles,
+  Theme,
+} from "@material-ui/core";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { TabPanel } from "components";
-import React, { useState  } from "react";
-/* import ReactPlayer from "react-player";  */
+import React, { useState } from "react";
+import ReactPlayer from "react-player";
 import Tags from "./Tags";
 import BreadcrumbsComponent from "./BreadcrumbsComponent";
 import Instructions from "./Instructions";
 import Ingredients from "./Ingredients";
 import { I_API } from "types/I_API";
-
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -52,7 +59,6 @@ const useStyles = makeStyles((theme: Theme) =>
       fontSize: "clamp(1.6rem, 5vw, 2rem)",
       fontWeight: 700,
     },
-   
   })
 );
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
@@ -76,21 +82,18 @@ const MealResult = ({ result }: { result: {} | any }) => {
 
   return (
     <MainLayout>
-      <title>Foody | {idMeal}</title>
-      <meta name="description" content="Result for the meal" />
-      <link rel="icon" href="/favicon.ico" />
       <Grid className={styles.root}>
         <BreadcrumbsComponent />
 
         {result.map((data: I_API.I_Data, i: number) => (
           <div key={i}>
             <div className={styles.youtubeContainer}>
-             {/*  <ReactPlayer
+              <ReactPlayer
                 height="100%"
                 width="100%"
                 controls
                 url={data.strYoutube}
-              /> */}
+              />
             </div>
             <hr />
             <Tags data={data} />
