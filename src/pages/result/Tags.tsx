@@ -1,11 +1,6 @@
-import React from "react";
-import PropTypes from "prop-types";
 import {
   Typography,
   Grid,
-  Link,
-  Tabs,
-  Tab,
   createStyles,
   makeStyles,
   Theme,
@@ -82,7 +77,5 @@ const Tags = ({ data }: I_API.I_Data) => {
     </Grid>
   );
 };
-
-Tags.propTypes = {};
 
 export default Tags;
