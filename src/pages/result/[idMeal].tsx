@@ -82,7 +82,8 @@ const MealResult = ({ result }: { result: {} | any }) => {
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        {result.map((data: I_API.I_Data, i: number) => (
+        <h1>hi</h1>
+        {/* {result.map((data: I_API.I_Data, i: number) => (
           <div key={i}>
             <div className={styles.youtubeContainer}>
               <ReactPlayer
@@ -93,7 +94,7 @@ const MealResult = ({ result }: { result: {} | any }) => {
               />
             </div>
             <hr />
-            {/* <Tags data={data} />
+            <Tags data={data} />
             <hr />
             <Tabs value={value} onChange={handleChange}>
               <Tab label="Instructions" />
@@ -108,9 +109,9 @@ const MealResult = ({ result }: { result: {} | any }) => {
             <hr />
             <Link color="primary" href={data.strSource}>
               Source of the recipe
-            </Link> */}
+            </Link>
           </div>
-        ))}
+        ))} */}
       </Grid>
     </MainLayout>
   );
