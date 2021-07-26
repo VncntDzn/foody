@@ -15,7 +15,6 @@ import { TabPanel } from "components";
 import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import Tags from "./Tags";
-import BreadcrumbsComponent from "./BreadcrumbsComponent";
 import Instructions from "./Instructions";
 import Ingredients from "./Ingredients";
 import { I_API } from "types/I_API";
@@ -83,9 +82,7 @@ const MealResult = ({ result }: { result: {} | any }) => {
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        <BreadcrumbsComponent />
-
-        {result.map((data: I_API.I_Data, i: number) => (
+        {result.map((data: any, i: number) => (
           <div key={i}>
             <div className={styles.youtubeContainer}>
               <ReactPlayer
