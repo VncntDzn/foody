@@ -10,5 +10,5 @@ export namespace I_Components {
     value: string | number | null;
     index: number;
     other: unknown;
-  }
+  } 
 }
