@@ -16,7 +16,7 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player";
 import Tags from "./Tags"; 
 import Instructions from "./Instructions";
-import Ingredients from "./Ingredients";
+import Ingredients from "./Ingredients"; 
 import { I_API } from "types/I_API";
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -82,8 +82,7 @@ const MealResult = ({ result }: { result: {} | any }) => {
   return (
     <MainLayout>
       <Grid className={styles.root}>
-        <h1>hi</h1>
-        {/* {result.map((data: I_API.I_Data, i: number) => (
+        {result.map((data: I_API.I_Data, i: number) => (
           <div key={i}>
             <div className={styles.youtubeContainer}>
               <ReactPlayer
@@ -111,7 +110,7 @@ const MealResult = ({ result }: { result: {} | any }) => {
               Source of the recipe
             </Link>
           </div>
-        ))} */}
+        ))}
       </Grid>
     </MainLayout>
   );
