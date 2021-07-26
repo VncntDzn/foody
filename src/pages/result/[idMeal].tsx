@@ -4,8 +4,8 @@ import { Grid, Link, Tabs, Tab ,createStyles, makeStyles, Theme} from "@material
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { TabPanel } from "components";
-import React, { useState, useEffect } from "react";
-import ReactPlayer from "react-player"; 
+import React, { useState  } from "react";
+/* import ReactPlayer from "react-player";  */
 import Tags from "./Tags";
 import BreadcrumbsComponent from "./BreadcrumbsComponent";
 import Instructions from "./Instructions";
@@ -85,12 +85,12 @@ const MealResult = ({ result }: { result: {} | any }) => {
         {result.map((data: I_API.I_Data, i: number) => (
           <div key={i}>
             <div className={styles.youtubeContainer}>
-              <ReactPlayer
+             {/*  <ReactPlayer
                 height="100%"
                 width="100%"
                 controls
                 url={data.strYoutube}
-              />
+              /> */}
             </div>
             <hr />
             <Tags data={data} />
