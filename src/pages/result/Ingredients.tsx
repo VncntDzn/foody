@@ -1,5 +1,3 @@
-import React from "react";
-import PropTypes from "prop-types";
 import { Grid, Typography } from "@material-ui/core";
 import { I_API } from "types/I_API";
 
@@ -27,7 +25,4 @@ const Ingredients = ({ data }: I_API.I_Data) => {
     </Grid>
   );
 };
-
-Ingredients.propTypes = {};
-
 export default Ingredients;
