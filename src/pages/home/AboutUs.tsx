@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import MainLayout from 'layouts/MainLayout';
 import Image from 'next/image';
-import Slice from 'assets/home/Slice.jpg';
+import Slice from 'assets/home/Slice.jpg';  
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
