@@ -11,7 +11,7 @@ import {
 } from '@material-ui/core';
 import MainLayout from 'layouts/MainLayout';
 import Image from 'next/image';
-import Slice from 'assets/home/Slice.jpg';
+import Slice from 'assets/home/Slice.jpg';  
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
@@ -76,11 +76,11 @@ const AboutUs = () => {
             </Hidden>
             <CardContent>
               <p>
-                Foody was built to help every person in the world that struggles
+                Foodie was built to help every person in the world that struggles
                 to find their meal ingredients.
               </p>
               <p>
-                Here in Foody, we gathered every possible meal ingredients
+                Here in Foodie, we gathered every possible meal ingredients
                 around the world and all you have to do is to search them.
               </p>
               <p>

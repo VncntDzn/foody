@@ -23,7 +23,7 @@ const Home = () => {
         <title>Foodie</title>
         <meta
           name='description'
-          content='Discover foods by ingredients in Foody!'
+          content='Discover foods by ingredients in Foodie!'
         />
         <link rel='icon' href='/favicon.ico' />
       </Head>
