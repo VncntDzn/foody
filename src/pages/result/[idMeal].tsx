@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import axios from "axios";
+import MainLayout from "layouts/MainLayout";
 import {
   Grid,
   Link,
@@ -11,15 +12,54 @@ import {
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 import { TabPanel } from "components";
-import { I_API } from "types/I_API";
+import React, { useState } from "react";
 import ReactPlayer from "react-player";
-import Tags from "./Tags";
+import Tags from "./Tags"; 
 import Instructions from "./Instructions";
-import Ingredients from "./Ingredients";
-import MainLayout from "layouts/MainLayout";
-import axios from "axios";
-import  useStyles from "./sample/style";
+import Ingredients from "./Ingredients"; 
+import { I_API } from "types/I_API";
 
+const useStyles = makeStyles((theme: Theme) =>
+  createStyles({
+    root: {
+      position: "relative",
+      height: "80vh",
+      padding: "1rem",
+      paddingTop: "5rem",
+      [theme.breakpoints.up("sm")]: {
+        paddingTop: "8rem",
+        height: "50vh",
+      },
+      [theme.breakpoints.up("lg")]: {
+        marginBottom: "38vh",
+      },
+    },
+
+    youtubeContainer: {
+      alignSelf: "center",
+      height: "50vh",
+      width: "90vw",
+      marginTop: "1rem",
+
+      [theme.breakpoints.up("sm")]: {
+        height: "40vh",
+        width: "82vw",
+      },
+      [theme.breakpoints.up("md")]: {
+        height: "35vh",
+        width: "78vw",
+      },
+      [theme.breakpoints.up("lg")]: {
+        height: "95vh",
+        width: "81vw",
+      },
+    },
+    mealName: {
+      fontSize: "clamp(1.6rem, 5vw, 2rem)",
+      fontWeight: 700,
+    },
+  })
+);
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const id = context.params.idMeal;
   const res = await axios.post(`${process.env.THEMEALDB}/lookup.php?i=${id}`);
