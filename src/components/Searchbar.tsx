@@ -22,6 +22,7 @@ const Searchbar = () => {
       placeholder='Search food here'
       variant='outlined'
       InputProps={{
+        style:{color: 'white'},
         endAdornment: (
           <InputAdornment position='start'>
             <IconButton color='primary' onClick={handleRouting}>
