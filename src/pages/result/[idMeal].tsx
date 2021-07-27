@@ -18,7 +18,7 @@ import Instructions from "./Instructions";
 import Ingredients from "./Ingredients";
 import MainLayout from "layouts/MainLayout";
 import axios from "axios";
-import  useStyles from "./styled/useStyles";
+import  useStyles from "./sample/useStyles";
 
 export const getServerSideProps: GetServerSideProps = async (context: any) => {
   const id = context.params.idMeal;
