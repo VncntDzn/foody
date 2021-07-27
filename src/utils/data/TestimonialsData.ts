@@ -19,7 +19,7 @@ const testimonialsData = [
     id: 3,
     name: 'Anonymous',
     img: Testimonial_3,
-    content: `I advise everyone to try foody because it is a lifesaver for me!`,
+    content: `I advise everyone to try foodie because it is a lifesaver for me!`,
   },
 ];
 
