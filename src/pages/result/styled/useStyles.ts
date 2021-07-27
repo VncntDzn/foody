@@ -1,6 +1,6 @@
 import { createStyles, makeStyles, Theme } from "@material-ui/core";
 
-export const useStyles = makeStyles((theme?: Theme) =>
+export const useStyles = makeStyles((theme?: any) =>
   createStyles({
     root: {
       position: "relative",
