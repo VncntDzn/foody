@@ -37,7 +37,7 @@ const Credits = () => {
             <Typography>Hanna Gomozova for the amazing design</Typography>
             <a href="https://www.behance.net/hanna_gomozova">
               Visit her profile on Behance
-            </a>
+            </a> 
             <Typography>Vincent Dizon for the amazing website</Typography>
             <Typography variant="subtitle1">Email: <span style={{fontWeight:600}}>workvpdizon@gmail.com</span></Typography>
             <a href="https://vpdizon.vercel.app/">
